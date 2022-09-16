@@ -85,4 +85,14 @@ public class Log implements Serializable {
     }
     //</editor-fold>
 
+    @Override
+    public String toString() {
+        return "Log{"
+                + "id=" + id
+                + ", dataHora=" + dataHora
+                + ", operacao=" + operacao
+                + ", mensagem=" + mensagem
+                + '}';
+    }
+
 }
