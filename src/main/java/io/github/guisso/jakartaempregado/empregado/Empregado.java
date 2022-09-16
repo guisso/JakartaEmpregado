@@ -40,6 +40,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -75,7 +76,7 @@ public class Empregado implements Serializable {
     @Transient
     private Byte idade;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private TipoSanguineo tipoSanguineo;
 
     private Boolean ativo;
