@@ -46,7 +46,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class EmpregadoBean implements EmpregadoBeanLocal {
 
-    @PersistenceContext(unitName = "EmpresaPU")
+    @PersistenceContext(unitName = "EmpresaLocalPU")
     private EntityManager em;
 
     @Override
