@@ -23,7 +23,7 @@ public class LogBean implements LogBeanLocal {
     }
 
     @Override
-    public Log localizarPorId(Log id) {
+    public Log localizarPorId(Long id) {
         return remoto.find(Log.class, id);
     }
 
