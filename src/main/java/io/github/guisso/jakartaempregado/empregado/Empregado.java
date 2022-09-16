@@ -76,7 +76,7 @@ public class Empregado implements Serializable {
     @Transient
     private Byte idade;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated //(EnumType.STRING)
     private TipoSanguineo tipoSanguineo;
 
     private Boolean ativo;
