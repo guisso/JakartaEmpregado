@@ -42,7 +42,7 @@ import javax.ejb.Local;
 @Local
 public interface EmpregadoBeanLocal {
 
-    void salvar(Empregado empregado);
+    void salvar(Empregado empregado) throws Exception;
 
     Empregado localizarPorId(Long id);
     
