@@ -36,10 +36,16 @@ package io.github.guisso.jakartaempregado;
 import io.github.guisso.jakartaempregado.util.TipoSanguineo;
 import io.github.guisso.jakartaempregado.empregado.Empregado;
 import io.github.guisso.jakartaempregado.empregado.EmpregadoBeanLocal;
+import io.github.guisso.jakartaempregado.log.Log;
+import io.github.guisso.jakartaempregado.log.LogBean;
+import io.github.guisso.jakartaempregado.log.LogBeanLocal;
+import io.github.guisso.jakartaempregado.util.OperacoesBancoDados;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -58,6 +64,9 @@ public class EmpresaServlet extends HttpServlet {
     
     @Inject
     EmpregadoBeanLocal empregadoBean;
+    
+    @Inject
+    LogBeanLocal logBean;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -82,8 +91,12 @@ public class EmpresaServlet extends HttpServlet {
             e.setTipoSanguineo(TipoSanguineo.OPositivo);
             e.setAtivo(true);
             
-            // Persistência
-            empregadoBean.salvar(e);
+            try {
+                // Persistência
+                empregadoBean.salvar(e);
+            } catch (Exception ex) {
+                Logger.getLogger(EmpresaServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             // Verificação da persistência
             Empregado eAux = empregadoBean.localizarPorId(1L);
