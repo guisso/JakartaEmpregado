@@ -14,12 +14,17 @@ import javax.persistence.PersistenceContext;
 public class LogBean implements LogBeanLocal {
 
     // Configurado para persistência local
-    @PersistenceContext(unitName = "EmpresaLocalPU")
+    @PersistenceContext(unitName = "EmpresaRemotoPU")
     EntityManager remoto;
 
     @Override
     public void registrar(Log log) throws Exception {
         remoto.persist(log);
+    }
+
+    @Override
+    public Log localizarPorId(Log id) {
+        return remoto.find(Log.class, id);
     }
 
 }

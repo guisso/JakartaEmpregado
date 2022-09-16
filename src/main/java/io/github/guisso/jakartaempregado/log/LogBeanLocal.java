@@ -13,4 +13,6 @@ public interface LogBeanLocal {
 
     void registrar(Log log) throws Exception;
 
+    Log localizarPorId(Log id);
+
 }
