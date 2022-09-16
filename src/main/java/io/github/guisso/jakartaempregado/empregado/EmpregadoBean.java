@@ -50,7 +50,7 @@ public class EmpregadoBean implements EmpregadoBeanLocal {
     private EntityManager em;
 
     @Override
-    public void salvar(Empregado empregado) {
+    public void salvar(Empregado empregado) throws Exception {
         em.persist(empregado);
     }
 
