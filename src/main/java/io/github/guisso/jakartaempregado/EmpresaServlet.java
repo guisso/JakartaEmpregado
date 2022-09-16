@@ -81,6 +81,8 @@ public class EmpresaServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
 
+            StringBuilder sb = new StringBuilder();
+
             // Objeto a ser persistido
             Empregado e = new Empregado();
             e.setNome("Luis");
@@ -110,20 +112,27 @@ public class EmpresaServlet extends HttpServlet {
             Empregado eAux = empregadoBean.localizarPorId(1L);
             Log lAux = logBean.localizarPorId(1L);
 
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EmpresaServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EmpresaServlet</h1>");
-            out.println("<h2>Empregado em BD: " + eAux + "</h2>");
-            out.println("<h3>Log em BD: " + lAux + "</h3>");
+            sb.append("<!DOCTYPE html>");
+            sb.append("<html>");
+            sb.append("<head>");
+            sb.append("<title>Servlet EmpresaServlet</title>");
+            sb.append("</head>");
+            sb.append("<body>");
+            sb.append("<h1>Servlet EmpresaServlet</h1>");
+            sb.append("<h2>Empregado em BD: ");
+            sb.append(eAux);
+            sb.append("</h2>");
+            sb.append("<h3>Log em BD: ");
+            sb.append(lAux);
+            sb.append("</h3>");
 
-            out.println("</body>");
-            out.println("</html>");
+            sb.append("</body>");
+            sb.append("</html>");
+
+            out.print(sb.toString());
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
