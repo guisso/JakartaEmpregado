@@ -38,7 +38,7 @@ import io.github.guisso.jakartaempregado.empregado.Empregado;
 import io.github.guisso.jakartaempregado.empregado.EmpregadoBeanLocal;
 import io.github.guisso.jakartaempregado.log.Log;
 import io.github.guisso.jakartaempregado.log.LogBeanLocal;
-import io.github.guisso.jakartaempregado.util.OperacoesBancoDados;
+import io.github.guisso.jakartaempregado.util.OperacaoBancoDados;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
@@ -100,7 +100,7 @@ public class EmpresaServlet extends HttpServlet {
             }
 
             // Registro da operação
-            Log l = new Log(OperacoesBancoDados.INSERCAO.toString(),
+            Log l = new Log(OperacaoBancoDados.INSERCAO.toString(),
                     this.getClass().getName() + "> " + e);
             try {
                 logBean.registrar(l);

@@ -1,6 +1,6 @@
 package io.github.guisso.jakartaempregado.log;
 
-import io.github.guisso.jakartaempregado.util.OperacoesBancoDados;
+import io.github.guisso.jakartaempregado.util.OperacaoBancoDados;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
@@ -72,7 +72,7 @@ public class Log implements Serializable {
         return operacao;
     }
 
-    public void setOperacao(OperacoesBancoDados operacao) {
+    public void setOperacao(OperacaoBancoDados operacao) {
         this.operacao = operacao.toString();
     }
 
